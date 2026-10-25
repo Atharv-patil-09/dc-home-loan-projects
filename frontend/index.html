@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BANKCORE — Distributed Banking Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="21" x2="21" y2="21"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <polyline points="5 6 12 3 19 6"></polyline>
+            <line x1="4" y1="10" x2="4" y2="21"></line>
+            <line x1="20" y1="10" x2="20" y2="21"></line>
+            <line x1="8" y1="14" x2="8" y2="17"></line>
+            <line x1="12" y1="14" x2="12" y2="17"></line>
+            <line x1="16" y1="14" x2="16" y2="17"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">BANKCORE</span>
+          <span class="brand-subtitle">Distributed Banking</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">BANKING</div>
+        <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </a>
+        <a href="#loans" class="nav-item" data-tab="loans">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          Loans
+        </a>
+        <a href="#customers" class="nav-item" data-tab="customers">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Customers
+        </a>
+        <a href="#transactions" class="nav-item" data-tab="transactions">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+          Transactions
+        </a>
+
+        <div class="nav-section-title">DISTRIBUTED OPERATIONS</div>
+        <a href="#pipeline" class="nav-item" data-tab="pipeline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          Underwriting Pipeline
+        </a>
+        <a href="#mpicollective" class="nav-item" data-tab="mpicollective">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Batch Underwriting
+        </a>
+        <a href="#consistency" class="nav-item" data-tab="consistency">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          Replication & Storage
+        </a>
+        <a href="#loadbalancer" class="nav-item" data-tab="loadbalancer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+          Gateway & Rate Limiter
+        </a>
+        <a href="#mapreduce" class="nav-item" data-tab="mapreduce">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Portfolio Risk Analytics
+        </a>
+        <a href="#cluster" class="nav-item" data-tab="cluster">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          Cluster Nodes
+        </a>
+        <a href="#election" class="nav-item" data-tab="election">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          Consensus & Failover
+        </a>
+        <a href="#clocksync" class="nav-item" data-tab="clocksync">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Clock Synchronization
+        </a>
+        <a href="#monitoring" class="nav-item" data-tab="monitoring">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M7 12h10M12 7v10"></path></svg>
+          Thread Concurrency
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#settings" class="nav-item" data-tab="settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Settings
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <span class="topbar-breadcrumb">Distributed Banking</span>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" placeholder="Search loans, customers..." id="globalSearch" />
+          </div>
+          <button class="icon-btn" title="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="notification-dot"></span>
+          </button>
+          <div class="system-status-pill">
+            <span class="status-indicator-dot"></span>
+            System Healthy
+          </div>
+          <div class="user-profile">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+              <span class="user-name">Admin</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- TAB CONTENT AREA -->
+      <div class="content-container">
+
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="view-dashboard" class="tab-view active">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Dashboard</h1>
+              <p class="page-subtitle">Overview of your distributed banking system</p>
+            </div>
+          </div>
+
+          <!-- STATS CARDS (Matching Screenshot 3) -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Total Loans</div>
+              <div class="metric-value">1,248</div>
+              <div class="metric-caption">Across all branches</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Active Loans</div>
+              <div class="metric-value" id="dashActiveLoans">12</div>
+              <div class="metric-caption">Currently active</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Loan Portfolio</div>
+              <div class="metric-value" id="dashPortfolioValue">₹12.7 Cr</div>
+              <div class="metric-caption">Total portfolio volume</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Pending Applications</div>
+              <div class="metric-value" id="dashPendingLoans">4</div>
+              <div class="metric-caption">Awaiting underwriting</div>
+            </div>
+          </div>
+
+          <!-- SYSTEM HEALTH SECTION -->
+          <div class="section-box">
+            <h2 class="section-title">System Health</h2>
+            <p class="section-subtitle">Current status of banking nodes</p>
+            <div class="node-cards-grid">
+              <div class="node-card" id="cardNode1">
+                <div class="node-card-header">
+                  <span class="node-name">Bank Node 01</span>
+                  <span class="node-status-badge online"><span class="dot"></span> Online</span>
+                </div>
+                <div class="node-role">Primary</div>
+                <div class="node-card-footer">Node operational</div>
+              </div>
+              <div class="node-card" id="cardNode2">
+                <div class="node-card-header">
+                  <span class="node-name">Bank Node 02</span>
+                  <span class="node-status-badge online"><span class="dot"></span> Online</span>
+                </div>
+                <div class="node-role">Backup</div>
+                <div class="node-card-footer">Node operational</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT ACTIVITY -->
+          <div class="section-box">
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="activity-list" id="activityList">
+              <div class="activity-item">
+                <div class="activity-icon green">✓</div>
+                <div class="activity-body">
+                  <span class="activity-text"><strong>Loan Application HL1002</strong> submitted by Atharv Patil</span>
+                  <span class="activity-time">Just now</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon blue">⇄</div>
+                <div class="activity-body">
+                  <span class="activity-text">State change replicated from <strong>Bank Node 01</strong> to <strong>Bank Node 02</strong></span>
+                  <span class="activity-time">2 mins ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon purple">⏱</div>
+                <div class="activity-body">
+                  <span class="activity-text">Cristian's Clock Synchronization completed (RTT: 4ms)</span>
+                  <span class="activity-time">5 mins ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. LOANS VIEW (Matching Screenshot 2) -->
+        <section id="view-loans" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Loans</h1>
+              <p class="page-subtitle">Manage and monitor loan applications</p>
+            </div>
+            <button class="btn btn-primary" id="btnOpenNewLoanModal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              + New Loan
+            </button>
+          </div>
+
+          <!-- LOAN METRICS -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Total Loans</div>
+              <div class="metric-value" id="loansCountTotal">2</div>
+              <div class="metric-caption">All applications</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Active</div>
+              <div class="metric-value" id="loansCountActive">0</div>
+              <div class="metric-caption">Currently active</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Pending</div>
+              <div class="metric-value" id="loansCountPending">2</div>
+              <div class="metric-caption">Awaiting processing</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Completed</div>
+              <div class="metric-value" id="loansCountCompleted">0</div>
+              <div class="metric-caption">Successfully completed</div>
+            </div>
+          </div>
+
+          <!-- LOANS TABLE CARD -->
+          <div class="table-container-card">
+            <div class="table-card-header">
+              <div>
+                <h3 class="table-title">Loan Applications Register</h3>
+                <span class="table-count" id="tableLoansCount">18 active portfolios loaded</span>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <input type="text" id="searchLoansInput" placeholder="Search borrower, ID, city..." class="form-input" style="width: 240px; padding: 6px 12px; font-size: 13px;" />
+                <button class="btn btn-secondary btn-sm" id="btnRefreshLoans">Refresh</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="loansTable">
+                <thead>
+                  <tr>
+                    <th>LOAN ID</th>
+                    <th>BORROWER & KYC</th>
+                    <th>SANCTION AMOUNT</th>
+                    <th>TENURE & RATE</th>
+                    <th>BRANCH / CITY</th>
+                    <th>CIBIL SCORE</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody id="loansTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. LOAN DETAILS VIEW (Matching Screenshot 1) -->
+        <section id="view-loan-details" class="tab-view">
+          <div class="breadcrumb-nav">
+            <a href="#loans" class="breadcrumb-link" id="linkBackToLoans">Loan Management</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Loan Details</span>
+            <span class="breadcrumb-tag" id="detailBreadcrumbId">HL1001</span>
+          </div>
+
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Loan Details</h1>
+              <p class="page-subtitle" id="detailHeaderSub">HL1001</p>
+            </div>
+            <button class="btn btn-secondary" id="btnBackToLoansList">← Back to Loans</button>
+          </div>
+
+          <div class="details-card-box">
+            <div class="details-header-row">
+              <div>
+                <h2 class="customer-title-name" id="detailCustomerName">Rahul Sharma</h2>
+                <div class="customer-id-sub" id="detailCustomerId">Customer ID: CUS1001</div>
+              </div>
+              <span class="status-badge-lg pending" id="detailStatusBadge">PENDING</span>
+            </div>
+
+            <div class="details-spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Loan ID</span>
+                <span class="spec-value" id="detailLoanId">HL1001</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Sanction Amount</span>
+                <span class="spec-value" id="detailAmount">₹45,00,000</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Tenure & Term</span>
+                <span class="spec-value" id="detailTenure">20 years (240 EMIs)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Loan Classification</span>
+                <span class="spec-value" id="detailType">Home Purchase Loan</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Effective Rate (p.a.)</span>
+                <span class="spec-value" id="detailRoi">8.50% (Repo + Spread)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Monthly EMI Due</span>
+                <span class="spec-value" id="detailEmi">₹39,045 / mo</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Property Location</span>
+                <span class="spec-value" id="detailCity">Mumbai Central</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">CIBIL Score</span>
+                <span class="spec-value" id="detailCibil" style="color:#059669; font-weight:700;">785 (Excellent)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Total Principal Repaid</span>
+                <span class="spec-value" id="detailPaid">₹1,50,000</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Current Ledger Balance</span>
+                <span class="spec-value" id="detailBalance" style="color:#2563eb; font-weight:700;">₹43,50,000</span>
+              </div>
+            </div>
+
+            <hr class="card-divider" />
+
+            <div class="details-action-box">
+              <h3 class="subsection-title">Simulate Distributed Payment / EMI Transaction</h3>
+              <div class="inline-form">
+                <input type="number" id="payEmiAmount" placeholder="Payment Amount (₹)" class="form-input" value="50000" />
+                <button class="btn btn-primary" id="btnSimulateEmiPayment">Pay EMI</button>
+                <button class="btn btn-success" id="btnApproveLoan">Approve Loan</button>
+              </div>
+              <p class="help-text" id="paymentStatusFeedback"></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- MUTUAL EXCLUSION & FAULT TOLERANCE VIEW -->
+        <section id="view-mutex" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Mutual Exclusion & Failover Architecture</h1>
+              <p class="page-subtitle">Ricart-Agrawala Distributed Lock Engine & Active-Passive Node Failover Monitor</p>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-danger" id="btnCrashPrimary">Simulate Primary Crash</button>
+              <button class="btn btn-secondary" id="btnRecoverPrimary">Restore Primary</button>
+            </div>
+          </div>
+
+          <div class="distributed-diagram-card">
+            <div class="cluster-nodes-row">
+              <div class="arch-node-box primary" id="boxPrimary">
+                <div class="node-header-tag">PRIMARY NODE</div>
+                <h3 class="node-title">Bank Node 01</h3>
+                <p class="node-port">Port: 5000 (Client Sockets)</p>
+                <div class="node-state-pill" id="pillPrimaryState">ACTIVE (Serving Writes)</div>
+                <div class="node-db-box">
+                  <strong>loanDatabase:</strong> <span id="countPrimaryDb">2</span> records
+                </div>
+              </div>
+
+              <div class="repl-channel-box">
+                <div class="repl-arrow-line"></div>
+                <span class="repl-badge">REPLICATE | PING</span>
+                <span class="repl-rate" id="lblHeartbeatRate">Heartbeat: 2000ms</span>
+              </div>
+
+              <div class="arch-node-box backup" id="boxBackup">
+                <div class="node-header-tag" id="lblBackupTag">BACKUP NODE</div>
+                <h3 class="node-title">Bank Node 02</h3>
+                <p class="node-port">Port: 6000 (Replication Listener)</p>
+                <div class="node-state-pill passive" id="pillBackupState">PASSIVE (Mirrored)</div>
+                <div class="node-db-box">
+                  <strong>loanDatabase:</strong> <span id="countBackupDb">2</span> records
+                </div>
+              </div>
+            </div>
+
+            <div class="console-box" id="replicationConsole">
+              <div class="console-header">Live Replication & Failover Telemetry</div>
+              <div class="console-body" id="replConsoleBody">
+                <div class="log-line">[SYSTEM] Replication listener active on port 6000.</div>
+                <div class="log-line">[HEARTBEAT] PING sent from Primary to Backup (OK).</div>
+                <div class="log-line">[SYNCED] Replicated write for Loan HL1001.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DISTRIBUTED CONSENSUS & LEADER ELECTION VIEW -->
+        <section id="view-election" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Distributed Consensus & Dynamic Leader Election</h1>
+              <p class="page-subtitle">Bully Algorithm Coordinator Election & Cluster Topology Heartbeat</p>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-danger" id="btnCrashCoordinator">Crash Coordinator (Node 4)</button>
+              <button class="btn btn-primary" id="btnTriggerElection">Initiate Election (from Node 2)</button>
+              <button class="btn btn-success" id="btnRecoverCoordinator">Recover Node 4 (Bully)</button>
+            </div>
+          </div>
+
+          <div class="bully-nodes-grid">
+            <div class="bully-node-card" id="bnode1">
+              <div class="node-id-circle">1</div>
+              <h4>BankNode 01</h4>
+              <p>Branch Mumbai</p>
+              <span class="badge-role slave">SLAVE</span>
+            </div>
+            <div class="bully-node-card" id="bnode2">
+              <div class="node-id-circle">2</div>
+              <h4>BankNode 02</h4>
+              <p>Branch Delhi</p>
+              <span class="badge-role slave">SLAVE</span>
+            </div>
+            <div class="bully-node-card" id="bnode3">
+              <div class="node-id-circle">3</div>
+              <h4>BankNode 03</h4>
+              <p>Branch Bangalore</p>
+              <span class="badge-role slave" id="roleNode3">SLAVE</span>
+            </div>
+            <div class="bully-node-card coordinator" id="bnode4">
+              <div class="node-id-circle">4</div>
+              <h4>BankNode 04</h4>
+              <p>Central Master</p>
+              <span class="badge-role coord" id="roleNode4">COORDINATOR</span>
+            </div>
+          </div>
+
+          <div class="console-box">
+            <div class="console-header">Bully Election Protocol Log</div>
+            <div class="console-body" id="bullyConsoleBody">
+              <div class="log-line">[CLUSTER] Initial Master Coordinator: BankNode 04 (Highest ID = 4).</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLOCK SYNCHRONIZATION VIEW -->
+        <section id="view-clocksync" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Clock Synchronization</h1>
+              <p class="page-subtitle">Cristian's RTT Monotonic Clock Synchronization & Berkeley Time Daemon Drift Correction</p>
+            </div>
+            <button class="btn btn-primary" id="btnRunCristianSync">Run Cristian Sync (RTT/2)</button>
+          </div>
+
+          <div class="clock-sync-cards-grid">
+            <div class="clock-card">
+              <h3>Cristian's Algorithm (Client-Pull)</h3>
+              <div class="sync-formula-box">
+                <code>T_sync = T_server + (RTT / 2)</code>
+              </div>
+              <div class="metric-row">
+                <span>T0 (Send Time):</span> <strong id="lblT0">1787502888060 ms</strong>
+              </div>
+              <div class="metric-row">
+                <span>T_server:</span> <strong id="lblTServer">1787502888062 ms</strong>
+              </div>
+              <div class="metric-row">
+                <span>T1 (Receive Time):</span> <strong id="lblT1">1787502888064 ms</strong>
+              </div>
+              <div class="metric-row highlight">
+                <span>Round Trip Time (RTT):</span> <strong id="lblRtt">4 ms</strong>
+              </div>
+              <div class="metric-row highlight">
+                <span>Synchronized Clock:</span> <strong id="lblTSync">1787502888064 ms</strong>
+              </div>
+            </div>
+
+            <div class="clock-card">
+              <h3>Berkeley Algorithm (Time Daemon)</h3>
+              <div class="sync-formula-box">
+                <code>Fault-Tolerant Average Offset Broadcast</code>
+              </div>
+              <div class="metric-row">
+                <span>Daemon Server Time:</span> <strong>1787502888000 ms</strong>
+              </div>
+              <div class="metric-row">
+                <span>Client Simulated Drift:</span> <strong>+150 ms</strong>
+              </div>
+              <div class="metric-row">
+                <span>Server Calculated Skew:</span> <strong>+145 ms</strong>
+              </div>
+              <div class="metric-row highlight">
+                <span>Adjustment Applied:</span> <strong>-72 ms</strong>
+              </div>
+              <div class="metric-row highlight">
+                <span>Adjusted Drift:</span> <strong>+78 ms (Converged)</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLUSTER NODES & COMMUNICATION VIEW -->
+        <section id="view-cluster" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Cluster Nodes & Communication Architecture</h1>
+              <p class="page-subtitle">High-Performance Socket RPC (Port 5000) & Java RMI Registry (Port 1099)</p>
+            </div>
+          </div>
+          <div class="table-container-card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>NODE ID</th>
+                  <th>NODE NAME</th>
+                  <th>PROTOCOL</th>
+                  <th>PORT</th>
+                  <th>STATUS</th>
+                  <th>LATENCY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>NODE-01</strong></td>
+                  <td>Central Master Server (Mumbai)</td>
+                  <td>TCP Sockets / RMI</td>
+                  <td>5000 / 1099</td>
+                  <td><span class="status-badge-sm active">Active</span></td>
+                  <td>0.4 ms</td>
+                </tr>
+                <tr>
+                  <td><strong>NODE-02</strong></td>
+                  <td>Branch Delhi Node</td>
+                  <td>Java RMI Client</td>
+                  <td>1099</td>
+                  <td><span class="status-badge-sm active">Active</span></td>
+                  <td>1.2 ms</td>
+                </tr>
+                <tr>
+                  <td><strong>NODE-03</strong></td>
+                  <td>Branch Bangalore Node</td>
+                  <td>Socket RPC Client</td>
+                  <td>5000</td>
+                  <td><span class="status-badge-sm active">Active</span></td>
+                  <td>1.8 ms</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- CONCURRENCY & THREAD MONITOR VIEW -->
+        <section id="view-monitoring" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Thread Concurrency & Lock Monitoring</h1>
+              <p class="page-subtitle">Dedicated ClientHandler Thread Pool, Synchronized Blocks & Deadlock Prevention</p>
+            </div>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Active Worker Threads</div>
+              <div class="metric-value">4</div>
+              <div class="metric-caption">ClientHandler threads alive</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Thread Pool Capacity</div>
+              <div class="metric-value">64</div>
+              <div class="metric-caption">Configured limit</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Locks Acquired</div>
+              <div class="metric-value">1,420</div>
+              <div class="metric-caption">Synchronized loan transactions</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Deadlocks Detected</div>
+              <div class="metric-value">0</div>
+              <div class="metric-caption">Zero race conditions</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CUSTOMERS & TRANSACTIONS (Banking Tabs) -->
+        <section id="view-customers" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Customer Accounts & KYC Register</h1>
+              <p class="page-subtitle">Verified borrower identities, biometric records, and banking relationships</p>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <input type="text" id="searchCustomersInput" placeholder="Search customer, ID, PAN..." class="form-input" style="width: 240px; padding: 6px 12px; font-size: 13px;" />
+              <button class="btn btn-secondary btn-sm" id="btnRefreshCustomers">Refresh</button>
+            </div>
+          </div>
+          <div class="table-container-card">
+            <div class="table-card-header">
+              <h3 class="table-title">Customer Profile Directory</h3>
+              <span class="table-count" id="tableCustomersCount">18 accounts registered</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>CUSTOMER ID</th>
+                    <th>BORROWER NAME</th>
+                    <th>HOME BRANCH</th>
+                    <th>PAN NUMBER</th>
+                    <th>ANNUAL INCOME</th>
+                    <th>CIBIL SCORE</th>
+                    <th>ACTIVE ACCOUNTS</th>
+                    <th>KYC STATUS</th>
+                  </tr>
+                </thead>
+                <tbody id="customersTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-transactions" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Real-Time Distributed Transaction Ledger</h1>
+              <p class="page-subtitle">Cryptographically verified immutable repayments, disbursements, and audit logs</p>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <input type="text" id="searchTxnInput" placeholder="Search Txn ID, Loan, Customer..." class="form-input" style="width: 250px; padding: 6px 12px; font-size: 13px;" />
+              <button class="btn btn-secondary btn-sm" id="btnRefreshTxns">Refresh</button>
+            </div>
+          </div>
+          <div class="table-container-card">
+            <div class="table-card-header">
+              <h3 class="table-title">Audit Log & Ledger Entries</h3>
+              <span class="table-count" id="tableTxnCount">18 transactions verified</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>TXN ID</th>
+                    <th>LOAN ID</th>
+                    <th>BORROWER NAME</th>
+                    <th>AMOUNT (₹)</th>
+                    <th>TRANSACTION TYPE</th>
+                    <th>PAYMENT CHANNEL</th>
+                    <th>TIMESTAMP</th>
+                    <th>CONSENSUS STATE</th>
+                  </tr>
+                </thead>
+                <tbody id="txnTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- MASTER END-TO-END PIPELINE VIEW -->
+        <section id="view-pipeline" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">End-to-End Distributed Banking Pipeline</h1>
+              <p class="page-subtitle">Automated End-to-End Mortgage Sanction Pipeline & Distributed State Machine</p>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-primary" id="btnRunFullPipeline">▶ Run End-to-End Sanction Journey</button>
+              <button class="btn btn-secondary" id="btnResetPipeline">Reset Pipeline</button>
+            </div>
+          </div>
+
+          <div class="pipeline-container">
+            <div class="pipeline-stepper">
+              <div class="pipeline-step-card" id="step1">
+                <div class="step-num-badge">1</div>
+                <div class="step-title">Token Bucket Limiter</div>
+                <div class="step-desc">Rate limit client traffic to 20 req/s to prevent DDoS</div>
+                <span class="step-subtag">API Gateway</span>
+              </div>
+              <div class="pipeline-step-card" id="step2">
+                <div class="step-num-badge">2</div>
+                <div class="step-title">Weighted Load Balancer</div>
+                <div class="step-desc">Route request to Bank Node 01 (Weight 5:3:2)</div>
+                <span class="step-subtag">Cluster Routing</span>
+              </div>
+              <div class="pipeline-step-card" id="step3">
+                <div class="step-num-badge">3</div>
+                <div class="step-title">Bully Coordinator Check</div>
+                <div class="step-desc">Verify Node 04 consensus leadership & cluster health</div>
+                <span class="step-subtag">Consensus Leader</span>
+              </div>
+              <div class="pipeline-step-card" id="step4">
+                <div class="step-num-badge">4</div>
+                <div class="step-title">Cristian Clock Timestamp</div>
+                <div class="step-desc">Synchronize monotonic time with RTT/2 precision</div>
+                <span class="step-subtag">Monotonic Clock</span>
+              </div>
+              <div class="pipeline-step-card" id="step5">
+                <div class="step-num-badge">5</div>
+                <div class="step-title">Ricart-Agrawala Mutex</div>
+                <div class="step-desc">Acquire distributed CS lock for loan sanctioning</div>
+                <span class="step-subtag">Distributed Lock</span>
+              </div>
+              <div class="pipeline-step-card" id="step6">
+                <div class="step-num-badge">6</div>
+                <div class="step-title">Quorum Replication</div>
+                <div class="step-desc">Write to majority (W=2, R=2, N=3) with SHA-256 state hash</div>
+                <span class="step-subtag">Quorum Storage</span>
+              </div>
+              <div class="pipeline-step-card" id="step7">
+                <div class="step-num-badge">7</div>
+                <div class="step-title">MPI Underwriting</div>
+                <div class="step-desc">Parallel EMI & DTI computation across 4 ranks (6.8x speedup)</div>
+                <span class="step-subtag">Parallel Compute</span>
+              </div>
+              <div class="pipeline-step-card" id="step8">
+                <div class="step-num-badge">8</div>
+                <div class="step-title">MapReduce Analytics</div>
+                <div class="step-desc">Map-Shuffle-Reduce regional risk exposure & ledger audit</div>
+                <span class="step-subtag">Risk Engine</span>
+              </div>
+            </div>
+
+            <div class="details-card-box" id="pipelineResultCard" style="display:none; border-left: 4px solid #10b981; background: #f0fdf4;">
+              <div class="details-header-row">
+                <div>
+                  <h2 class="customer-title-name" style="color:#166534;">✓ Loan Application Sanctioned Successfully</h2>
+                  <div class="customer-id-sub">Application ID: HL-E2E-2026 | Verified Across All Core Banking & Distributed Modules</div>
+                </div>
+                <span class="status-badge-lg active">SANCTION APPROVED</span>
+              </div>
+              <div class="details-spec-grid">
+                <div class="spec-item"><span class="spec-label">Sanction Amount</span><span class="spec-value">₹75,00,000</span></div>
+                <div class="spec-item"><span class="spec-label">Effective ROI</span><span class="spec-value">8.65% (Repo 6.50% + Spread 2.15%)</span></div>
+                <div class="spec-item"><span class="spec-label">Calculated EMI</span><span class="spec-value">₹65,818 / mo (Tenure: 20 Yrs)</span></div>
+                <div class="spec-item"><span class="spec-label">Distributed State Hash</span><span class="spec-value hash-code">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (MATCHED)</span></div>
+              </div>
+            </div>
+
+            <div class="console-box">
+              <div class="console-header">Distributed Orchestration Telemetry</div>
+              <div class="console-body" id="pipelineConsoleBody">
+                <div class="log-line">[SYSTEM READY] BANKCORE Distributed Banking Platform initialized across all subsystems.</div>
+                <div class="log-line">[TOPOLOGY] Sockets (5000), RMI (1099), Cristian Clock, Bully (4 nodes), Primary-Backup (6000), Quorum (W=2,R=2), Load Balancer (WRR 5:3:2), MapReduce, MPI Comm World (4 Ranks).</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REPLICATION & DATA CONSISTENCY VIEW -->
+        <section id="view-consistency" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Distributed Replication & Data Consistency</h1>
+              <p class="page-subtitle">Configurable Quorum Intersection (W + R > N), Strong Verification & Replica Synchronization</p>
+            </div>
+          </div>
+
+          <div class="control-toolbar">
+            <div class="toolbar-group">
+              <span class="toolbar-label">Consistency Mode:</span>
+              <select id="selConsistencyMode" class="select-input">
+                <option value="STRONG">Strong Consistency (W=3, R=1)</option>
+                <option value="QUORUM" selected>Quorum Consistency (W=2, R=2, N=3)</option>
+                <option value="EVENTUAL">Eventual Consistency (W=1, R=1)</option>
+              </select>
+            </div>
+            <div class="toolbar-group">
+              <span class="toolbar-label">Simulated Delay:</span>
+              <select id="selReplicaDelay" class="select-input">
+                <option value="0">0 ms (Instant)</option>
+                <option value="1500" selected>1500 ms (Network Jitter)</option>
+                <option value="3000">3000 ms (High Latency)</option>
+              </select>
+            </div>
+            <div class="toolbar-group">
+              <button class="btn btn-primary" id="btnConsistencyWrite">Process Repayment (-₹50,000)</button>
+              <button class="btn btn-secondary" id="btnReadPrimary">Read Primary</button>
+              <button class="btn btn-secondary" id="btnReadBackup">Read Backup (Node 2)</button>
+              <button class="btn btn-secondary" id="btnReadQuorum">Read Quorum (R=2)</button>
+              <button class="btn btn-success" id="btnCatchUpReplicas">Trigger Convergence</button>
+            </div>
+          </div>
+
+          <div class="cluster-grid-3" style="margin-bottom: 18px;">
+            <div class="live-card" id="cnode1">
+              <div class="live-card-header">
+                <span class="live-card-title">Node 01 (Mumbai HQ)</span>
+                <span class="live-badge primary" id="badgeCNode1">PRIMARY</span>
+              </div>
+              <div class="live-stat-row"><span class="live-stat-label">Txn Sequence:</span><span class="live-stat-val" id="vNode1">#TXN-1042</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Ledger Balance:</span><span class="live-stat-val" id="balNode1">₹43,50,000</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">State Digest:</span><span class="hash-code" id="hashNode1">6a8f1e29...</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Replication:</span><span class="live-stat-val" id="statusNode1" style="color:#059669;">Committed (0ms)</span></div>
+            </div>
+            <div class="live-card" id="cnode2">
+              <div class="live-card-header">
+                <span class="live-card-title">Node 02 (Delhi Branch)</span>
+                <span class="live-badge backup" id="badgeCNode2">BACKUP</span>
+              </div>
+              <div class="live-stat-row"><span class="live-stat-label">Txn Sequence:</span><span class="live-stat-val" id="vNode2">#TXN-1042</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Ledger Balance:</span><span class="live-stat-val" id="balNode2">₹43,50,000</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">State Digest:</span><span class="hash-code" id="hashNode2">6a8f1e29...</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Replication:</span><span class="live-stat-val" id="statusNode2" style="color:#059669;">Synchronized</span></div>
+            </div>
+            <div class="live-card" id="cnode3">
+              <div class="live-card-header">
+                <span class="live-card-title">Node 03 (Bangalore Branch)</span>
+                <span class="live-badge backup" id="badgeCNode3">BACKUP</span>
+              </div>
+              <div class="live-stat-row"><span class="live-stat-label">Txn Sequence:</span><span class="live-stat-val" id="vNode3">#TXN-1042</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Ledger Balance:</span><span class="live-stat-val" id="balNode3">₹43,50,000</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">State Digest:</span><span class="hash-code" id="hashNode3">6a8f1e29...</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Replication:</span><span class="live-stat-val" id="statusNode3" style="color:#059669;">Synchronized</span></div>
+            </div>
+          </div>
+
+          <div class="console-box">
+            <div class="console-header">Replication & Consistency Telemetry Log</div>
+            <div class="console-body" id="consistencyConsoleBody">
+              <div class="log-line">[INITIAL] 3 Replicas online. Mode: Quorum Consistency (W=2, R=2, N=3).</div>
+              <div class="log-line">[STATE] All replicas synchronized at Txn Sequence #1042 (Digest: 6a8f1e29).</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GATEWAY & TRAFFIC SHAPING VIEW -->
+        <section id="view-loadbalancer" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">API Gateway & Cluster Traffic Management</h1>
+              <p class="page-subtitle">Token-Bucket Rate Limiter, DDoS Protection & Multi-Node Adaptive Routing</p>
+            </div>
+          </div>
+
+          <div class="control-toolbar">
+            <div class="toolbar-group">
+              <span class="toolbar-label">Balancing Algorithm:</span>
+              <select id="selLbAlgo" class="select-input">
+                <option value="WRR" selected>Weighted Round Robin (5:3:2)</option>
+                <option value="LC">Least Connections</option>
+              </select>
+            </div>
+            <div class="toolbar-group">
+              <button class="btn btn-primary" id="btnSendSingleReq">Send Loan Request</button>
+              <button class="btn btn-secondary" id="btnSendBurstReq">Send Burst (10 Requests)</button>
+              <button class="btn btn-danger" id="btnSendExcessSpike">Simulate Spike (HTTP 429)</button>
+              <button class="btn btn-secondary" id="btnResetLb">Reset Metrics</button>
+            </div>
+          </div>
+
+          <!-- TOKEN BUCKET STATUS -->
+          <div class="live-card" style="margin-bottom: 18px;">
+            <div class="live-card-header">
+              <span class="live-card-title">Token Bucket Rate Limiter (Capacity: 10 Tokens | Refill: 2 Tokens/sec)</span>
+              <span class="live-badge active" id="lblBucketStatus">ALLOWING TRAFFIC</span>
+            </div>
+            <div class="bucket-progress-track">
+              <div class="bucket-progress-fill" id="barBucketTokens" style="width: 100%;"></div>
+            </div>
+            <div class="metrics-grid" style="margin-top: 12px; margin-bottom: 0;">
+              <div class="metric-card"><div class="metric-label">Available Tokens</div><div class="metric-value" id="lblTokensAvail">10 / 10</div></div>
+              <div class="metric-card"><div class="metric-label">Accepted Requests</div><div class="metric-value" id="lblReqAccepted">0</div></div>
+              <div class="metric-card"><div class="metric-label">Rejected (HTTP 429)</div><div class="metric-value" id="lblReqDropped" style="color:#ef4444;">0</div></div>
+              <div class="metric-card"><div class="metric-label">Refill Rate</div><div class="metric-value">2 / sec</div></div>
+            </div>
+          </div>
+
+          <!-- BALANCER SERVER NODES -->
+          <div class="cluster-grid-3" style="margin-bottom: 18px;">
+            <div class="live-card">
+              <div class="live-card-header"><span class="live-card-title">Server Node 01</span><span class="live-badge primary">Weight: 5</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Active Connections:</span><span class="live-stat-val" id="connsNode1">0</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Total Requests Routed:</span><span class="live-stat-val" id="routedNode1">0</span></div>
+            </div>
+            <div class="live-card">
+              <div class="live-card-header"><span class="live-card-title">Server Node 02</span><span class="live-badge primary">Weight: 3</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Active Connections:</span><span class="live-stat-val" id="connsNode2">0</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Total Requests Routed:</span><span class="live-stat-val" id="routedNode2">0</span></div>
+            </div>
+            <div class="live-card">
+              <div class="live-card-header"><span class="live-card-title">Server Node 03</span><span class="live-badge primary">Weight: 2</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Active Connections:</span><span class="live-stat-val" id="connsNode3">0</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Total Requests Routed:</span><span class="live-stat-val" id="routedNode3">0</span></div>
+            </div>
+          </div>
+
+          <div class="console-box">
+            <div class="console-header">Load Balancer & Rate Limiter Routing Telemetry</div>
+            <div class="console-body" id="lbConsoleBody">
+              <div class="log-line">[SYSTEM READY] Weighted Round-Robin Load Balancer initialized across 3 server nodes.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PORTFOLIO RISK & DELINQUENCY ENGINE -->
+        <section id="view-mapreduce" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">Portfolio Risk & Delinquency Analytics</h1>
+              <p class="page-subtitle">Parallel Map-Shuffle-Reduce Aggregation for Regional Loan Exposure & Audits</p>
+            </div>
+          </div>
+
+          <div class="control-toolbar">
+            <div class="toolbar-group">
+              <span class="toolbar-label">Analytics Job:</span>
+              <select id="selMrJob" class="select-input">
+                <option value="REGIONAL" selected>Job 1: Regional Loan Volume Aggregation</option>
+                <option value="RISK">Job 2: Delinquency Risk Category Classification</option>
+                <option value="AUDIT">Job 3: Audit Log Word Count & Stopword Filter</option>
+              </select>
+            </div>
+            <div class="toolbar-group">
+              <button class="btn btn-primary" id="btnRunMrJob">Execute MapReduce Job</button>
+            </div>
+          </div>
+
+          <!-- VISUAL FLOW -->
+          <div class="mr-pipeline-flow">
+            <div class="mr-stage-box">
+              <div class="mr-stage-header"><span>INPUT SPLIT</span><span>4 Chunks</span></div>
+              <div class="mr-stage-content">1,248 Loan Records partitioned across cluster disks</div>
+            </div>
+            <div class="mr-arrow">➔</div>
+            <div class="mr-stage-box">
+              <div class="mr-stage-header"><span>MAP PHASE</span><span>4 Mappers</span></div>
+              <div class="mr-stage-content" id="lblMrMapOutput">Parallel extraction of key-value tuples &lt;Region, Amount&gt;</div>
+            </div>
+            <div class="mr-arrow">➔</div>
+            <div class="mr-stage-box">
+              <div class="mr-stage-header"><span>REDUCE PHASE</span><span>2 Reducers</span></div>
+              <div class="mr-stage-content" id="lblMrReduceOutput">Shuffle/sort grouping & regional exposure aggregation</div>
+            </div>
+          </div>
+
+          <!-- RESULTS TABLE CARD -->
+          <div class="table-container-card" style="margin-bottom: 18px;">
+            <div class="table-card-header">
+              <h3 class="table-title" id="lblMrResultsTitle">Regional Portfolio Summary (MapReduce Output)</h3>
+              <span class="table-count" id="lblMrExecutionTime">Execution Time: 25 ms | Speedup: 3.82x</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr id="mrTableHeader">
+                    <th>REGION</th>
+                    <th>LOAN COUNT</th>
+                    <th>TOTAL DISBURSED (₹)</th>
+                    <th>AVG LOAN SIZE (₹)</th>
+                    <th>RISK TIER</th>
+                  </tr>
+                </thead>
+                <tbody id="mrTableBody">
+                  <tr><td><strong>North (Delhi)</strong></td><td>384</td><td>₹2,84,50,000</td><td>₹74,088</td><td><span class="status-badge-sm active">LOW</span></td></tr>
+                  <tr><td><strong>West (Mumbai)</strong></td><td>492</td><td>₹3,62,10,000</td><td>₹73,597</td><td><span class="status-badge-sm active">LOW</span></td></tr>
+                  <tr><td><strong>South (Bangalore)</strong></td><td>248</td><td>₹1,85,40,000</td><td>₹74,758</td><td><span class="status-badge-sm active">LOW</span></td></tr>
+                  <tr><td><strong>East (Kolkata)</strong></td><td>124</td><td>₹88,00,000</td><td>₹70,967</td><td><span class="status-badge-sm active">LOW</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="console-box">
+            <div class="console-header">Distributed MapReduce Execution Engine Log</div>
+            <div class="console-body" id="mrConsoleBody">
+              <div class="log-line">[READY] Distributed MapReduce framework standing by with 4 mappers and 2 reducers.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BATCH UNDERWRITING ENGINE -->
+        <section id="view-mpicollective" class="tab-view">
+          <div class="view-header">
+            <div>
+              <h1 class="page-title">High-Performance Batch Underwriting</h1>
+              <p class="page-subtitle">Parallel Mortgage Sanctioning via Collective Operations across Regional Worker Nodes</p>
+            </div>
+          </div>
+
+          <div class="control-toolbar">
+            <div class="toolbar-group">
+              <button class="btn btn-secondary" id="btnMpiBcast">1. MPI_Bcast (Repo Rate)</button>
+              <button class="btn btn-secondary" id="btnMpiScatter">2. MPI_Scatter (Mortgages)</button>
+              <button class="btn btn-secondary" id="btnMpiCompute">3. Local Compute (EMI/DTI)</button>
+              <button class="btn btn-secondary" id="btnMpiGather">4. MPI_Gather (Decisions)</button>
+              <button class="btn btn-secondary" id="btnMpiReduce">5. MPI_Reduce (Risk/Sum)</button>
+              <button class="btn btn-secondary" id="btnMpiAllgather">6. MPI_Allgather (Sync)</button>
+              <button class="btn btn-primary" id="btnMpiRunAll">Run Full Collective Workflow</button>
+            </div>
+          </div>
+
+          <!-- 4 RANKS CARDS -->
+          <div class="cluster-grid-4" style="margin-bottom: 18px;">
+            <div class="live-card" id="mpiRank0">
+              <div class="live-card-header"><span class="live-card-title">Rank 0 (HQ Master)</span><span class="live-badge primary">ROOT</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Role:</span><span class="live-stat-val">Orchestrator</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Assigned:</span><span class="live-stat-val" id="mpiLoansRank0">2 Loans (₹1.25 Cr)</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Status:</span><span class="live-stat-val" id="mpiStatusRank0">Active</span></div>
+            </div>
+            <div class="live-card" id="mpiRank1">
+              <div class="live-card-header"><span class="live-card-title">Rank 1 (Branch Pune)</span><span class="live-badge worker">WORKER</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Role:</span><span class="live-stat-val">Evaluator</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Assigned:</span><span class="live-stat-val" id="mpiLoansRank1">2 Loans (₹0.70 Cr)</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Status:</span><span class="live-stat-val" id="mpiStatusRank1">Active</span></div>
+            </div>
+            <div class="live-card" id="mpiRank2">
+              <div class="live-card-header"><span class="live-card-title">Rank 2 (Bangalore)</span><span class="live-badge worker">WORKER</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Role:</span><span class="live-stat-val">Evaluator</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Assigned:</span><span class="live-stat-val" id="mpiLoansRank2">2 Loans (₹1.32 Cr)</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Status:</span><span class="live-stat-val" id="mpiStatusRank2">Active</span></div>
+            </div>
+            <div class="live-card" id="mpiRank3">
+              <div class="live-card-header"><span class="live-card-title">Rank 3 (Delhi)</span><span class="live-badge worker">WORKER</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Role:</span><span class="live-stat-val">Evaluator</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Assigned:</span><span class="live-stat-val" id="mpiLoansRank3">2 Loans (₹1.85 Cr)</span></div>
+              <div class="live-stat-row"><span class="live-stat-label">Status:</span><span class="live-stat-val" id="mpiStatusRank3">Active</span></div>
+            </div>
+          </div>
+
+          <!-- SUMMARY STATS -->
+          <div class="metrics-grid" style="margin-bottom: 18px;">
+            <div class="metric-card"><div class="metric-label">MPI_COMM_WORLD Size</div><div class="metric-value">4 Nodes</div><div class="metric-caption">Root (0) + 3 Workers</div></div>
+            <div class="metric-card"><div class="metric-label">Total Loan Exposure (MPI_SUM)</div><div class="metric-value" id="lblMpiSum">₹5.12 Cr</div><div class="metric-caption">Aggregate Sanction Volume</div></div>
+            <div class="metric-card"><div class="metric-label">Peak Single Exposure (MPI_MAX)</div><div class="metric-value" id="lblMpiMax">₹1.85 Cr</div><div class="metric-caption">Max Single Borrower Risk</div></div>
+            <div class="metric-card"><div class="metric-label">Topology Speedup</div><div class="metric-value" style="color:#10b981;">6.8x</div><div class="metric-caption">Binomial Tree O(log2 N)</div></div>
+          </div>
+
+          <div class="console-box">
+            <div class="console-header">MPI Collective Communication Telemetry</div>
+            <div class="console-body" id="mpiConsoleBody">
+              <div class="log-line">[MPI INIT] Communicator MPI_COMM_WORLD spawned across 4 ranks.</div>
+              <div class="log-line">[TOPOLOGY] Binomial tree broadcast & hypercube gather active.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-settings" class="tab-view">
+          <div class="view-header">
+            <h1 class="page-title">Settings & System Configuration</h1>
+          </div>
+          <div class="details-card-box">
+            <h3 class="subsection-title">Node Configuration</h3>
+            <p><strong>Primary Server Address:</strong> localhost:5000</p>
+            <p><strong>Replication Channel:</strong> localhost:6000</p>
+            <p><strong>RMI Registry:</strong> localhost:1099</p>
+            <p><strong>Heartbeat Interval:</strong> 2000 ms</p>
+            <p><strong>Failover Timeout:</strong> 6000 ms</p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: + NEW LOAN APPLICATION -->
+  <div class="modal-backdrop" id="modalNewLoan">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Submit New Home Loan Application</h3>
+        <button class="modal-close" id="btnCloseNewLoanModal">✕</button>
+      </div>
+      <form id="formNewLoan">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Customer ID</label>
+            <input type="text" id="inputCustId" class="form-input" placeholder="e.g. CUS1005" required value="CUS1005" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Customer Full Name</label>
+            <input type="text" id="inputCustName" class="form-input" placeholder="e.g. Tanish Parakh" required value="Tanish Parakh" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Loan Amount (₹)</label>
+            <input type="number" id="inputAmount" class="form-input" placeholder="e.g. 5000000" required value="5000000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Loan Tenure (Years)</label>
+            <input type="number" id="inputTenure" class="form-input" placeholder="e.g. 20" required value="20" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Interest Rate (% p.a.)</label>
+            <input type="number" step="0.1" id="inputRate" class="form-input" placeholder="e.g. 8.5" required value="8.5" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCancelNewLoan">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
